@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
-require_relative "lib/servi_craft/version"
+require_relative 'lib/servi_craft/version'
 
 Gem::Specification.new do |spec|
-  spec.name = "servi-craft"
+  spec.name = 'servi-craft'
   spec.version = ServiCraft::VERSION
-  spec.authors = ["Marcos Chuquicondor"]
-  spec.email = ["marcos@chuquicondor.com"]
+  spec.authors = ['Marcos Chuquicondor']
+  spec.email = ['marcos@chuquicondor.com']
   spec.licenses = ['MIT']
 
-  spec.summary = "Manage Service Objects."
-  spec.description = "Manage Service Objects."
-  # spec.homepage = "TODO: Put your gem's website or public repo URL here."
-  spec.required_ruby_version = ">= 2.6.0"
+  spec.summary = 'Manage Service Objects.'
+  spec.description = 'Manage Ruby Service Objects.'
+  spec.homepage = 'https://github.com/chuquimm/servi-craft.'
+  spec.required_ruby_version = '>= 2.6.0'
 
   # spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
 
-  # spec.metadata["homepage_uri"] = spec.homepage
+  spec.metadata['homepage_uri'] = spec.homepage
   # spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
   # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
 
@@ -27,7 +27,7 @@ Gem::Specification.new do |spec|
     'lib/servi_craft/destroy.rb',
     'lib/servi_craft/query.rb',
     'lib/servi_craft/update.rb',
-    'lib/servi_craft/version.rb',
+    'lib/servi_craft/version.rb'
   ]
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   # spec.files = Dir.chdir(__dir__) do
@@ -41,7 +41,7 @@ Gem::Specification.new do |spec|
   # spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  # spec.add_dependency 'echo_craft', '0.1.0'
+  spec.add_dependency 'echo-craft', '0.1.0'
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
