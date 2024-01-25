@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
+require 'echo_craft/service_objects/create'
 module ServiCraft
   # CreateRecordService
   class Create
-    require 'echo_craft/service_objects/create'
 
     attr_reader :model, :record, :params, :response
 

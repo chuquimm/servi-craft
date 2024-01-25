@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
+require 'echo_craft/service_objects/update'
 module ServiCraft
   # UpdateRecordService
   class Update
-    require 'echo_craft/service_objects/update'
 
     attr_reader :model, :record, :params, :response
 
