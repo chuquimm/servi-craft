@@ -27,7 +27,13 @@ Gem::Specification.new do |spec|
     'lib/servi_craft/destroy.rb',
     'lib/servi_craft/query.rb',
     'lib/servi_craft/update.rb',
-    'lib/servi_craft/version.rb'
+    'lib/servi_craft/version.rb',
+    'lib/generators/servi_craft/servi_craft_generator.rb',
+    'lib/generators/servi_craft/templates/create.template',
+    'lib/generators/servi_craft/templates/destroy.template',
+    'lib/generators/servi_craft/templates/info.template',
+    'lib/generators/servi_craft/templates/query.template',
+    'lib/generators/servi_craft/templates/update.template'
   ]
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.
   # spec.files = Dir.chdir(__dir__) do
@@ -42,6 +48,8 @@ Gem::Specification.new do |spec|
 
   # Uncomment to register a new dependency of your gem
   spec.add_dependency 'echo-craft', '0.1.0'
+  spec.add_dependency 'model-ancestry', '~> 0.1.0'
+  spec.add_dependency 'rails', '~> 7.0'
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html

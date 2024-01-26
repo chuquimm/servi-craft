@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+module <%= @service_module %>
+  # Service object to get info a record of <%= file_name.singularize.underscore %>.
+  # [Modified by] rails generate servi_craft <%= file_name %>
+  # [Last modified] <%= Date.today.to_s %>
+  class <%= @service_class_name %>
+    # Set a record of <%= file_name.singularize.underscore %>.
+    # [Modified by] rails generate servi_craft <%= file_name %>
+    # [Last modified] <%= Date.today.to_s %>
+    def initialize(<%= file_name.singularize.underscore %>)
+      @<%= file_name.singularize.underscore %> = <%= file_name.singularize.underscore %>
+    end
+  end
+end
