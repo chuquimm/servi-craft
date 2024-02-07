@@ -5,7 +5,6 @@ require 'echo_craft/service_objects/destroy'
 module ServiCraft
   # Destroy Record Service
   class Destroy
-
     def initialize(record)
       @record = record
       @response = ::EchoCraft::ServiceObjects::Destroy.new(@record)
@@ -17,7 +16,7 @@ module ServiCraft
              finally: proc {})
 
       before_destroy.call
-      process_record_destroy(after_successful_destroy:, after_failed_destroy:)
+      process_record_destroy(after_successful_destroy: after_successful_destroy, after_failed_destroy: after_failed_destroy)
       finally.call
 
       @response
@@ -34,9 +33,9 @@ module ServiCraft
       @response.destroyed
     rescue ActiveRecord::InvalidForeignKey => e
       @record.errors.add(:base, :fk_constraint, message: e.cause.message)
-      unprocessabled_destroy(after_failed_destroy:)
+      unprocessabled_destroy(after_failed_destroy: after_failed_destroy)
     rescue StandardError
-      unprocessabled_destroy(after_failed_destroy:)
+      unprocessabled_destroy(after_failed_destroy: after_failed_destroy)
     end
 
     def unprocessabled_destroy(after_failed_destroy: proc {})

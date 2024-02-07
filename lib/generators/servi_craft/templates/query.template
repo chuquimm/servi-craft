@@ -1,13 +1,14 @@
 # frozen_string_literal: true
 
 require 'servi_craft/query'
+
 module <%= @service_module %>
   # Service object to query <%= file_name.pluralize.underscore %>.
   # [Modified by] rails generate servi_craft <%= file_name %>
   # [Last modified] <%= Date.today.to_s %>
   class <%= @service_class_name %> < ServiCraft::Query
     def initialize(base = <%= @service_model %>.all, page: 1, rows: nil)
-      super(base, page:, rows:)
+      super(base, page: page, rows: page)
     end
   end
 end

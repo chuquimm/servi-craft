@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'servi_craft/destroy'
+
 module <%= @service_module %>
   # Service object to destroy the <%= file_name %>
   # [Modified by] rails generate servi_craft <%= file_name %>

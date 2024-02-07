@@ -4,7 +4,6 @@ require 'echo_craft/service_objects/update'
 module ServiCraft
   # UpdateRecordService
   class Update
-
     attr_reader :model, :record, :params, :response
 
     def initialize(record, params)
@@ -27,9 +26,9 @@ module ServiCraft
 
         before_update.call
 
-        process_record_update @record.save, after_successful_update:, after_failed_update:
+        process_record_update(@record.save, after_successful_update: after_successful_update, after_failed_update: after_failed_update)
       rescue StandardError
-        fail_update(after_failed_update:)
+        fail_update(after_failed_update: after_failed_update)
       end
       finally.call
       @response
@@ -43,7 +42,7 @@ module ServiCraft
         after_successful_update.call
         @response.updated
       else
-        fail_update(after_failed_update:)
+        fail_update(after_failed_update: after_failed_update)
       end
       result
     end

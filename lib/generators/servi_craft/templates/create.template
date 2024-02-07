@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'servi_craft/create'
+
 module <%= @service_module %>
   # Service object to create a new <%= file_name.singularize.underscore %>.
   # [Modified by] rails generate servi_craft <%= file_name %>
@@ -18,7 +19,7 @@ module <%= @service_module %>
     # [Modified by] rails generate servi_craft <%= file_name %>
     # [Last modified] <%= Date.today.to_s %>
     def call
-      super(before_assign_attributes:)
+      super(before_assign_attributes: before_assign_attributes)
     end
 
     private
