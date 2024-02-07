@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'echo_craft/service_objects/destroy'
+
 module ServiCraft
   # Destroy Record Service
   class Destroy

@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'echo_craft/service_objects/query'
+
 module ServiCraft
   # Query Record Service
   class Query
@@ -7,10 +9,12 @@ module ServiCraft
       @base = base
       @page = page.to_i
       @rows = rows
+      @response = ::EchoCraft::ServiceObjects::Query.new(query: @base, page: @page, rows: @rows)
     end
 
     def call
-      paginate @base
+      @response.list(paginate(@base))
+      @response
     end
 
     private

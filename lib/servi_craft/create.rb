@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'echo_craft/service_objects/create'
+
 module ServiCraft
   # CreateRecordService
   class Create
-
     attr_reader :model, :record, :params, :response
 
     def initialize(model, params)
@@ -22,9 +22,9 @@ module ServiCraft
         before_assign_attributes.call
         @record = @model.new(@params)
         before_create.call
-        process_record_create @record.save, after_successful_create:, after_failed_create:
+        process_record_create(@record.save, after_successful_create: after_successful_create, after_failed_create: after_failed_create)
       rescue StandardError
-        fail_create(after_failed_create:)
+        fail_create(after_failed_create: after_failed_create)
       end
       finally.call
       @response
@@ -37,7 +37,7 @@ module ServiCraft
         after_successful_create.call
         @response.created(@record)
       else
-        fail_create(after_failed_create:)
+        fail_create(after_failed_create: after_failed_create)
       end
     end
 
