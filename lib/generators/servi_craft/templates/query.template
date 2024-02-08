@@ -8,7 +8,7 @@ module <%= @service_module %>
   # [Last modified] <%= Date.today.to_s %>
   class <%= @service_class_name %> < ServiCraft::Query
     def initialize(base = <%= @service_model %>.all, page: 1, rows: nil)
-      super(base, page: page, rows: page)
+      super(base, page: page, rows: rows)
     end
   end
 end
