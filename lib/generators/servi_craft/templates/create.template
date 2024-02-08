@@ -19,7 +19,7 @@ module <%= @service_module %>
     # [Modified by] rails generate servi_craft <%= file_name %>
     # [Last modified] <%= Date.today.to_s %>
     def call
-      super(before_assign_attributes: before_assign_attributes)
+      super(before_create: proc { before_create })
     end
 
     private
@@ -27,7 +27,7 @@ module <%= @service_module %>
     # Set <%= @parent_attribute.name.singularize.underscore %> attribute.
     # [Modified by] rails generate servi_craft <%= file_name %>
     # [Last modified] <%= Date.today.to_s %>
-    def before_assign_attributes
+    def before_create
       @record.<%= @parent_attribute.index_name %> = @<%= @parent_attribute.name %>.id
     end<% end %>
   end
