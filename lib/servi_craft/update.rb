@@ -26,8 +26,11 @@ module ServiCraft
 
         before_update.call
 
-        process_record_update(@record.save, after_successful_update: after_successful_update, after_failed_update: after_failed_update)
-      rescue StandardError
+        process_record_update(@record.save, after_successful_update: after_successful_update,
+                                            after_failed_update: after_failed_update)
+      rescue StandardError => e
+        puts "#{e.class}: #{e.message}"
+        puts e.backtrace.join("\n")
         fail_update(after_failed_update: after_failed_update)
       end
       finally.call

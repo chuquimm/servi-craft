@@ -16,10 +16,14 @@ module ServiCraft
              finally: proc {})
 
       before_destroy.call
-      process_record_destroy(after_successful_destroy: after_successful_destroy, after_failed_destroy: after_failed_destroy)
+      process_record_destroy(after_successful_destroy: after_successful_destroy,
+                             after_failed_destroy: after_failed_destroy)
       finally.call
 
       @response
+    rescue StandardError => e
+      puts "#{e.class}: #{e.message}"
+      puts e.backtrace.join("\n")
     end
 
     private

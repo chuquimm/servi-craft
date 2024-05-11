@@ -22,8 +22,11 @@ module ServiCraft
         before_assign_attributes.call
         @record = @model.new(@params)
         before_create.call
-        process_record_create(@record.save, after_successful_create: after_successful_create, after_failed_create: after_failed_create)
-      rescue StandardError
+        process_record_create(@record.save, after_successful_create: after_successful_create,
+                                            after_failed_create: after_failed_create)
+      rescue StandardError => e
+        puts "#{e.class}: #{e.message}"
+        puts e.backtrace.join("\n")
         fail_create(after_failed_create: after_failed_create)
       end
       finally.call

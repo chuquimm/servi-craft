@@ -47,7 +47,7 @@ Gem::Specification.new do |spec|
   # spec.require_paths = ["lib"]
 
   # Uncomment to register a new dependency of your gem
-  spec.add_dependency 'echo-craft', '0.1.3'
+  spec.add_dependency 'echo-craft', '~> 0.1.3'
   spec.add_dependency 'model-ancestry', '~> 0.1.0'
   spec.add_dependency 'rails', '~> 7.0'
 

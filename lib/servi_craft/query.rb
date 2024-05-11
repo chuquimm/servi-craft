@@ -15,6 +15,9 @@ module ServiCraft
     def call
       @response.list(paginate(@base))
       @response
+    rescue StandardError => e
+      puts "#{e.class}: #{e.message}"
+      puts e.backtrace.join("\n")
     end
 
     private
