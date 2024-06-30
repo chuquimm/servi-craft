@@ -5,6 +5,8 @@ require 'echo_craft/service_objects/query'
 module ServiCraft
   # Query Record Service
   class Query
+    attr_reader :response
+
     def initialize(base, page: 1, rows: nil)
       @base = base
       @page = page.to_i
