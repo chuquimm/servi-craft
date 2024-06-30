@@ -5,6 +5,8 @@ require 'echo_craft/service_objects/destroy'
 module ServiCraft
   # Destroy Record Service
   class Destroy
+    attr_reader :response
+
     def initialize(record)
       @record = record
       @response = ::EchoCraft::ServiceObjects::Destroy.new(@record)
